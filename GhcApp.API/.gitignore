@@ -1,0 +1,6 @@
+# Changes on the following files will be ignored by Git.
+.vscode
+bin
+obj
+*.db
+
