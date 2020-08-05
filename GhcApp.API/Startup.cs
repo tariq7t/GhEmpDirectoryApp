@@ -36,8 +36,11 @@ namespace GhcApp.API
             services.AddControllers();
             // Adding CORS as a service so Angular can pull info (security reasons)
             services.AddCors();
+            // After creating the interface & repo for authorization, we are adding the service here.
+            // Service is added because we need to tell our app about it.
+            services.AddScoped<IAuthRepository, AuthRepository>();
         }
-
+        // WE NEED TO BE CAREFUL ABOUT THE ORDER IN THE HTTP PIPELINE.
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
